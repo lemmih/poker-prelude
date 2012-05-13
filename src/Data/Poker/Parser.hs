@@ -1,5 +1,21 @@
-{- Parser for poker hands from hand-histories.com -}
-module Data.Poker.Parser where
+-----------------------------------------------------------------------------
+-- |
+-- Module      :  Data.Poker.Parser
+-- Copyright   :  PublicDomain
+--
+-- Maintainer  :  lemmih@gmail.com
+-- Portability :  haskell2010
+--
+-- Parser for poker hands from hand-histories.com
+--
+module Data.Poker.Parser
+       ( Token
+       , PlayerName
+       , Action(..)
+       , History(..)
+       , parseGames
+       , mkHistory
+       ) where
 
 import Data.Poker.Eval
 
@@ -18,6 +34,7 @@ import qualified Data.Text.Lazy as T
 import qualified Data.Text.Lazy.Read as T
 import qualified Data.Text.Lazy.IO as T
 
+{-
 handDirectory = "/home/david/poker/lemmih_gmail_com_PTY_NLH25-USD_3-6plrs_x400k_fe9ae"
 
 processHands
@@ -30,7 +47,7 @@ processHands
                                         print (mkHistory tokens)-}
               print (mkHistory $ last hds)
          return ()
-
+-}
 
 
 

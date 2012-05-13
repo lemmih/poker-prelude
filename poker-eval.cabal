@@ -45,8 +45,7 @@ Cabal-version:       >=1.2
 
 Library
   -- Modules exported by the library.
-  Exposed-modules:     Data.Poker.Eval, Data.Poker.Parser, Data.Poker.Estimate, Data.Poker.Statistics,
-                       Data.Poker.Trainer
+  Exposed-modules:     Data.Poker.Eval, Data.Poker.Parser, Data.Poker.Statistics
   
   Hs-source-dirs: src/
 
@@ -56,13 +55,14 @@ Library
   
   Extensions:          ForeignFunctionInterface, GeneralizedNewtypeDeriving
 
-  c-sources:           cbits/wrappers.c, cbits/estimate.c
+  c-sources:            cbits/estimate.c cbits/wrappers.c
 
   -- Modules not exported by this package.
   Other-modules:       Data.Poker.Definitions
 
-  include-dirs:        /usr/include/poker-eval/ /usr/local/include/poker-eval/
+  include-dirs:        /usr/include/poker-eval/ /usr/local/include/poker-eval
   
   -- Extra tools (e.g. alex, hsc2hs, ...) needed to build the source.
   -- Build-tools:         
   Extra-libraries: poker-eval
+

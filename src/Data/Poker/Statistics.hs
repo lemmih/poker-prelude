@@ -1,4 +1,17 @@
-module Data.Poker.Statistics where
+-----------------------------------------------------------------------------
+-- |
+-- Module      :  Data.Poker.Statistics
+-- Copyright   :  PublicDomain
+--
+-- Maintainer  :  lemmih@gmail.com
+-- Portability :  haskell2010
+--
+-- Functionality for gathering information such as VPIP and PFR.
+--
+module Data.Poker.Statistics 
+       ( historyStat
+       , Stat(..)
+       ) where
 
 import Data.Poker.Parser
 import Data.Poker.Eval

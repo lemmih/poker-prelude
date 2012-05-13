@@ -1,3 +1,13 @@
+-----------------------------------------------------------------------------
+-- |
+-- Module      :  Data.Poker.Parser
+-- Copyright   :  PublicDomain
+--
+-- Maintainer  :  lemmih@gmail.com
+-- Portability :  haskell2010
+--
+-- Primitive poker types such as Rank, Suit and Card.
+--
 module Data.Poker.Eval
     ( module Data.Poker.Definitions
     , module Data.Poker.Eval
@@ -5,8 +15,9 @@ module Data.Poker.Eval
 
 import Data.Poker.Definitions
 
-import Foreign
+import Foreign                   ( Ptr, alloca, allocaBytes, peek, FunPtr, withArray )
 import Foreign.C
+import System.IO.Unsafe
 import Data.Word
 import Data.Bits
 import Data.IORef
@@ -59,7 +70,7 @@ stringToCard_ txt
                     return (Just (Card card))
             else    return Nothing
 
-foreign import ccall "StdDeck_cardToString" c_cardToString :: CInt -> CString -> IO CInt
+foreign import ccall "deck_std.h StdDeck_cardToString" c_cardToString :: CInt -> CString -> IO CInt
 cardToString :: Card -> String
 cardToString (Card idx)
     = unsafePerformIO $
